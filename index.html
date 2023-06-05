@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="weather">
+      <div class="container">
+        <div class="input">
+          <input
+            type="text"
+            placeholder="search city here"
+            autocomplete="off"
+            autofocus="on"
+            id="myInput"
+          />
+        </div>
+        <div class="buttons">
+          <button
+            type="button"
+            onclick="search()"
+            class="btn btn-primary"
+            id="search"
+          >
+            Search
+          </button>
+          <button type="button" class="btn btn-primary">Current</button>
+        </div>
+        <div class="name">
+          <h1 id="heading">Nairobi</h1>
+        </div>
+        <div class="par1">
+          <div class="hum">
+            Humidity :
+            <p id="humid"></p>
+          </div>
+
+          <div class="wind">
+            Wind :
+            <p id="wind">km/h</p>
+          </div>
+        </div>
+        <div class="par" id="par">
+          <p id="par3">Monday 14:34 PM</p>
+          <p id="desc">Cloudy</p>
+        </div>
+        <div>
+          <p id="temp"></p>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Mon</h3>
+          ⛈️
+          <p class="p">25<sup>o</sup>C</p>
+        </div>
+        <div class="card">
+          <h3>Tue</h3>
+          ⛈️
+          <p class="p">19<sup>o</sup>C</p>
+        </div>
+        <div class="card">
+          <h3>Wed</h3>
+          🌧️
+          <p class="p">17<sup>o</sup>C</p>
+        </div>
+        <div class="card">
+          <h3>Thur</h3>
+          🌧️
+          <p class="p">16<sup>o</sup>C</p>
+        </div>
+        <div class="card">
+          <h3>Fri</h3>
+          🌧️
+          <p class="p">15<sup>o</sup>C</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
