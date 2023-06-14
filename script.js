@@ -37,6 +37,8 @@ async function search() {
   let description = document.getElementById("desc");
   let humidity = document.getElementById("humid");
   let wind = document.getElementById("wind");
+  let iconElement = document.getElementById("icon");
+
   const apiKey = "23d4f073904d24d4299a5a10c7ca094b";
   let apiResult = {};
 
@@ -58,8 +60,34 @@ async function search() {
 
   console.log(apiResult);
 
-  temperature.innerText = apiResult.main.temp + "°C";
+  celciusTemp = apiResult.main.temp;
+  temperature.innerText = Math.round(apiResult.main.temp);
   humidity.innerText = apiResult.main.humidity + "%";
-  wind.innerText = apiResult.wind.speed + "km /h";
+  wind.innerText = Math.round(apiResult.wind.speed) + "km /h";
   description.innerText = apiResult.weather[0].description;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${apiResult.weather[0].icon}@2x.png`
+  );
 }
+
+function displayFarTemp(event){
+event.preventDefault();
+let temperature = document.getElementById("temp");
+let fahrenheitTemp = (celciusTemp * 9) / 5 +32;
+temperature.innerHTML = Math.round(fahrenheitTemp);
+}
+
+let fahrenheitLink = document.getElementById("fahrenheit");
+fahrenheitLink.addEventListener("click", displayFarTemp);
+
+function displayCelTemp(){
+  event.preventDefault();
+  let temperature = document.getElementById("temp");
+  temperature.innerHTML = Math.round(celciusTemp)
+}
+
+let celciusTemp = null;
+
+let celciusLink =document.getElementById("celcius");
+celciusLink.addEventListener("click", displayCelTemp);
