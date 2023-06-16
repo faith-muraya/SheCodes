@@ -1,6 +1,7 @@
-let searchBtn = document.getElementById("search");
+const form = document.getElementById('form')
 
-searchBtn.addEventListener("click", function () {
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
   search();
 });
 
@@ -58,17 +59,23 @@ async function search() {
       console.log("Error: " + error);
     });
 
-  console.log(apiResult);
+    console.log(apiResult);
 
-  celciusTemp = apiResult.main.temp;
-  temperature.innerText = Math.round(apiResult.main.temp);
-  humidity.innerText = apiResult.main.humidity + "%";
-  wind.innerText = Math.round(apiResult.wind.speed) + "km /h";
-  description.innerText = apiResult.weather[0].description;
-  iconElement.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${apiResult.weather[0].icon}@2x.png`
-  );
+    if (apiResult?.cod === '404') {
+      heading.textContent = "'"+inputValue.value +"' was not found";
+      return;
+    }
+      celciusTemp = apiResult.main.temp;
+      temperature.innerText = Math.round(apiResult.main.temp);
+      humidity.innerText = apiResult.main.humidity + "%";
+      wind.innerText = Math.round(apiResult.wind.speed) + "km /h";
+      description.innerText = apiResult.weather[0].description;
+      iconElement.setAttribute(
+        "src",
+        `http://openweathermap.org/img/wn/${apiResult.weather[0].icon}@2x.png`
+      );
+
+
 }
 
 function displayFarTemp(event){
@@ -91,3 +98,4 @@ let celciusTemp = null;
 
 let celciusLink =document.getElementById("celcius");
 celciusLink.addEventListener("click", displayCelTemp);
+

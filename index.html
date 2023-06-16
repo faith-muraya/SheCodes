@@ -10,26 +10,21 @@
   <body>
     <div class="weather">
       <div class="container">
-        <div class="input">
-          <input
-            type="text"
-            placeholder="search city here"
-            autocomplete="off"
-            autofocus="on"
-            id="myInput"
-          />
-        </div>
-        <div class="buttons">
-          <button
-            type="button"
-            onclick="search()"
-            class="btn btn-primary"
-            id="search"
-          >
-            Search
-          </button>
-          <button type="button" class="btn btn-primary">Current</button>
-        </div>
+        <form id="form">
+          <div class="input">
+            <input
+              type="text"
+              placeholder="search city here"
+              autocomplete="off"
+              autofocus="on"
+              id="myInput"
+            />
+          </div>
+          <div class="buttons">
+            <button type="submit" class="btn btn-primary">Search</button>
+          </div>
+        </form>
+
         <div class="name">
           <h1 id="heading">Nairobi</h1>
         </div>
